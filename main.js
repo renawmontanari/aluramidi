@@ -8,11 +8,16 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
 let contador = 0;
 
 while (contador < listaDeTeclas.length) {
-    listaDeTeclas[contador].onclick = function () {
-        tocaSom('');
+
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+
+    // Template String
+    const idAudio = `#som_${instrumento}`;
+
+    tecla.onclick = function () {
+        tocaSom(idAudio);
     }
 
     contador += 1;
-
-    console.log(contador);
 }
